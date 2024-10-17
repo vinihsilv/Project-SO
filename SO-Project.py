@@ -1,12 +1,13 @@
 import sys
 
 
-if len(sys.argv) < 3:
-    print("Uso correto: python fifo.py <numero_de_frames> <sequencia_de_paginas>")
+if len(sys.argv) < 4:
+    print("Uso correto: python fifo.py <numero_de_frames> <sequencia_de_paginas> <algoritmo_desejado>")
     sys.exit(1)
 
 numero_de_frames = int(sys.argv[1])
 sequencia_de_paginas = list(map(int, sys.argv[2].split(',')))
+algoritmo_desejado = sys.argv[3]  
 lista_memoria = [-1] * numero_de_frames
 def FIFO(sequencia_de_paginas,lista_memoria):
     fila = []
@@ -87,6 +88,11 @@ def LRU(sequencia_de_paginas, lista_memoria):
     print(f"Sequência de páginas: {sequencia_de_paginas}")
     print(f"Estado final da memória: {lista_memoria}")
                     
-
-LRU(sequencia_de_paginas,lista_memoria)  
+if(algoritmo_desejado == "FIFO"):
+    FIFO(sequencia_de_paginas,lista_memoria)
+elif(algoritmo_desejado == "OPT"):
+    OPT(sequencia_de_paginas,lista_memoria)
+elif(algoritmo_desejado == "LRU"):
+    LRU(sequencia_de_paginas, lista_memoria)
+ 
 
