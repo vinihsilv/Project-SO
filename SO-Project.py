@@ -76,8 +76,9 @@ def LRU(sequencia_de_paginas, lista_memoria):
                 fila = []
                 for pagina in lista_memoria:
                     if pagina in sequencia_de_paginas[:i]:
-                        aux = sequencia_de_paginas[:i].index(pagina)
-                        fila.append(aux)
+                        lista_reversa = list(reversed(sequencia_de_paginas[:i]))
+                        aux = lista_reversa.index(pagina)
+                        fila.append(i - 1 - aux)
                 if fila: 
                     alteracao = min(fila)
                     lista_memoria[lista_memoria.index(sequencia_de_paginas[alteracao])] = pagina_atual
