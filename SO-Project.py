@@ -11,9 +11,11 @@ algoritmo_desejado = sys.argv[3]
 lista_memoria = [-1] * numero_de_frames
 def FIFO(sequencia_de_paginas,lista_memoria):
     fila = []
+    hit_rate = 0
     for i in range(len(sequencia_de_paginas)):
         if(sequencia_de_paginas[i] in lista_memoria):
-            print("ja tem")
+            print("Hit")
+            hit_rate = hit_rate + 1
         else:
             if(-1 in lista_memoria):
                 vazio=lista_memoria.index(-1)
@@ -27,14 +29,17 @@ def FIFO(sequencia_de_paginas,lista_memoria):
             print(f"Page fault! Página {sequencia_de_paginas[i]} carregada: {lista_memoria}")
     print(f"\nNúmero de frames: {numero_de_frames}")
     print(f"Sequência de páginas: {sequencia_de_paginas}")
-    print(f"Estado final da memória: {lista_memoria}") 
+    print(f"Estado final da memória: {lista_memoria}")
+    print(f"Miss Rate: {miss_rate} / {len(sequencia_de_paginas)}") 
 
 def OPT(sequencia_de_paginas, lista_memoria):
     fila = []
+    hit_rate = 0
     for i in range(len(sequencia_de_paginas)):
         pagina_atual = sequencia_de_paginas[i]
         if(sequencia_de_paginas[i] in lista_memoria):
-            print("ja tem")
+            print("hit")
+            hit_rate = hit_rate + 1
             
         else:
             if(-1 in lista_memoria):
@@ -62,10 +67,12 @@ def OPT(sequencia_de_paginas, lista_memoria):
 
 def LRU(sequencia_de_paginas, lista_memoria):
     fila = []
+    hit_rate = 0
     for i in range(len(sequencia_de_paginas)):
         pagina_atual = sequencia_de_paginas[i]
         if(sequencia_de_paginas[i] in lista_memoria):
-            print("ja tem")
+            print("Hit")
+            hit_rate = hit_rate + 1
             
         else:
            
