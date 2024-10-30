@@ -2,5 +2,5 @@ Projeto acadêmico de Sistemas Operacionais. O projeto consiste em desenvolver u
 
 Integrantes: 
 Vinicius henrique Silva 22.122.063-5
-
+Luan Petroucic Moreno 22.122.076-7
 
