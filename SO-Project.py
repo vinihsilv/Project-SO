@@ -17,13 +17,13 @@ def imprime_saída(i, acerto):
                 else:
                     print(f"[{lista_memoria[f]}]")
     print("\n")
-    
+
 def FIFO(sequencia_de_paginas,lista_memoria):
     fila = []
     hit_rate = 0
     miss_rate = 0
     for i in range(len(sequencia_de_paginas)):
-        print(f"page: {i+1}")
+        print(f"page: {sequencia_de_paginas[i]}")
         if(sequencia_de_paginas[i] in lista_memoria):
             imprime_saída(i, "hit")
             hit_rate += 1
@@ -50,7 +50,7 @@ def OPT(sequencia_de_paginas, lista_memoria):
     hit_rate = 0
     miss_rate = 0
     for i in range(len(sequencia_de_paginas)):
-        print(f"page: {i+1}")
+        print(f"page: {sequencia_de_paginas[i]}")
         pagina_atual = sequencia_de_paginas[i]
         if(sequencia_de_paginas[i] in lista_memoria):
             imprime_saída(i, "hit")
@@ -87,7 +87,7 @@ def LRU(sequencia_de_paginas, lista_memoria):
     hit_rate = 0
     miss_rate = 0
     for i in range(len(sequencia_de_paginas)):
-        print(f"page: {i+1}")
+        print(f"page: {sequencia_de_paginas[i]}")
         pagina_atual = sequencia_de_paginas[i]
         if(sequencia_de_paginas[i] in lista_memoria):
             imprime_saída(i, "hit")
