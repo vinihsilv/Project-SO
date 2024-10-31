@@ -10,6 +10,9 @@ sequencia_de_paginas = list(map(int, sys.argv[2].split(',')))
 algoritmo_desejado = sys.argv[3]  
 lista_memoria = [-1] * numero_de_frames
 
+
+
+
 def imprime_saída(i, acerto):
     for f in range(numero_de_frames):
                 if(lista_memoria[f] == sequencia_de_paginas[i]):
@@ -67,11 +70,11 @@ def OPT(sequencia_de_paginas, lista_memoria):
                 for elemento in lista_memoria:
                     if elemento in sequencia_de_paginas[i+1:]:
                             index = sequencia_de_paginas[i+1:].index(elemento) + i + 1
-                            fila.append(index)  # Adiciona o próximo uso à fila
+                            fila.append(index)  
                     else:
-                        fila.append(float('inf'))  # Página não será usada novamente
+                        fila.append(float('inf'))  
                         
-                    # Encontrar a página que não será usada por mais tempo
+                   
                 alteração = fila.index(max(fila))
                 lista_memoria[alteração] = pagina_atual
                 miss_rate += 1
